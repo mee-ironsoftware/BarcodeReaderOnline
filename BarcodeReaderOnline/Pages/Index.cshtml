@@ -1,0 +1,24 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Barcode Online Reader";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form enctype="multipart/form-data" method="post">
+    <dl>
+        <dt>
+            <label for="file">File</label>
+        </dt>
+        <dd>
+            <input asp-for="FormFile" type="file" multiple />
+        </dd>
+    </dl>
+
+    <input asp-page-handler="Upload" class="btn e-primary" type="submit" value="Read" />
+</form>
+
+<p class="result">
+    @Html.Raw(Model.Result)
+</p>
